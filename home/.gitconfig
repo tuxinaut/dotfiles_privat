@@ -1,0 +1,22 @@
+[user]
+	name = Denny Schäfer
+	email = denny.schaefer@online.de
+[color]
+	ui = auto
+[pack]
+	threads = 0
+[core]
+	editor = vim
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	rehead = reset --hard HEAD
+	nfm = merge --no-ff
+	ffm = merge --ff-only
+	tree = log --decorate --pretty=oneline --abbrev-commit --graph
+	fixup = commit --amend -C HEAD
+	ru = remote update --prune
+[difftool]
+	prompt = false
