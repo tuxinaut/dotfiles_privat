@@ -105,3 +105,5 @@ if [ -r $NANOBASHCONF ]; then
 else
    echo "WARN: Could not find nano-bash config $NANOBASHCONF"
 fi
+
+[ -s "/home/tuxinaut/.scm_breeze/scm_breeze.sh" ] && source "/home/tuxinaut/.scm_breeze/scm_breeze.sh"
