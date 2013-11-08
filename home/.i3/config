@@ -79,8 +79,6 @@ bindsym $mod+a focus parent
 #workspace "1:Web" output LVDS
 #workspace "2:Email" output LVDS
 
-bindsym $mod+x move workspace to output right
-
 # switch to workspace
 bindsym $mod+1 workspace 1:Web
 bindsym $mod+2 workspace 2:Email
@@ -162,6 +160,11 @@ bar {
 
 # Own
 #
+
+bindsym $mod+Shift+n exec i3-input -F 'rename workspace to %s' -P 'New name: '
+bindsym Control+$mod+a workspace prev
+bindsym Control+$mod+s workspace next
+bindsym $mod+x move workspace to output right
 
 bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
 
