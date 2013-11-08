@@ -166,6 +166,8 @@ bindsym Control+$mod+a workspace prev
 bindsym Control+$mod+s workspace next
 bindsym $mod+x move workspace to output right
 
+bindsym Control+$mod+l exec i3lock
+
 bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +5% && killall -SIGUSR1 i3status
