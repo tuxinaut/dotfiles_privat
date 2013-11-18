@@ -5,8 +5,6 @@ set showmatch
 set incsearch 
 set hlsearch
 
-colorscheme evening
-
 set cursorline
 hi CursorLine ctermbg=Blue ctermfg=White
 
@@ -31,6 +29,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/SudoEdit.vim'
 
 filetype plugin indent on
+let g:Powerline_symbols="fancy" " Fancy styling
+set encoding=utf-8
+set laststatus=2 " Always show the status bar
+set t_Co=256
