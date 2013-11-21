@@ -29,11 +29,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'vim-scripts/SudoEdit.vim'
 
 filetype plugin indent on
-let g:Powerline_symbols="fancy" " Fancy styling
 set encoding=utf-8
 set laststatus=2 " Always show the status bar
 set t_Co=256
+let g:airline_powerline_fonts = 1
