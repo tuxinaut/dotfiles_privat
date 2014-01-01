@@ -108,7 +108,7 @@ bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+#bindsym $mod+Shift+E exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -168,7 +168,12 @@ bindsym $mod+x move workspace to output right
 
 bindsym Control+$mod+l exec i3lock
 
-bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
+
+bindsym $mod+Shift+E exec ~/.i3/i3-exit
+for_window [class="I3-exit" instance="i3-exit"] floating enable
+
+
+bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 --primary && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +5% && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -5% && killall -SIGUSR1 i3status
