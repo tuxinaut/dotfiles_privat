@@ -8,7 +8,6 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod4
 
 # font for window titles. ISO 10646 = Unicode
@@ -166,28 +165,32 @@ bindsym Control+$mod+a workspace prev
 bindsym Control+$mod+s workspace next
 bindsym $mod+x move workspace to output right
 
-bindsym Control+$mod+l exec i3lock
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.i3/i3exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.i3/i3exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3/i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i~/.i3/3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.i3/i3exit shutdown, mode "default"
 
-
-bindsym $mod+Shift+E exec ~/.i3/i3-exit
-for_window [class="I3-exit" instance="i3-exit"] floating enable
-
+    # back to normal: Enter or Escape
+    # bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+E mode "$mode_system"
 
 bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 --primary && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -5% && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 1 && killall -SIGUSR1 i3status
 
 exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
 exec --no-startup-id i3-msg 'workspace 1:Web; exec sleep 5 && /usr/bin/keepassx'
 exec --no-startup-id i3-msg 'workspace 2:Email; exec /usr/bin/thunderbird'
 exec --no-startup-id i3-msg 'workspace 3:Terminal; exec /usr/bin/terminator'
 
-exec gtk-redshift
-exec gnome-sound-applet
-exec clipit
+exec redshift-gtk
+exec pa-applet
+exec parcellite
 exec gnome-encfs -m
-exec dropbox start
+exec dropboxd
 exec nm-applet
 exec tomboy
