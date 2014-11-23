@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+tabbed=( 1:Web )
+
+for w in $tabbed; do
+	i3-msg "workspace $w; layout tabbed"
+done
+
+i3-msg "workspace 1:Web"
