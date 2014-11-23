@@ -185,7 +185,7 @@ bindsym $mod+Shift+E mode "$mode_system"
 bindsym $mod+shift+h exec xrandr --output LVDS --mode 1920x1080 --primary && xrandr --output VGA-0 --mode 1280x1024 --right-of LVDS;
 
 exec --no-startup-id i3-msg 'workspace 1:Web; exec /usr/bin/firefox'
-exec --no-startup-id i3-msg 'workspace 1:Web; exec sleep 5 && /usr/bin/keepassx'
+exec --no-startup-id i3-msg 'workspace 1:Web; exec sleep 10 && /usr/bin/keepass'
 exec --no-startup-id i3-msg 'workspace 2:Email; exec /usr/bin/thunderbird'
 exec --no-startup-id i3-msg 'workspace 3:Terminal; exec /usr/bin/terminator'
 
